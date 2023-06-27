@@ -45,7 +45,10 @@ const Navbar = () => {
             </Link>
           ))}
         </nav>
-        <button className="text-white inline-flex items-center bg-blue-600 border-0 py-1 px-3 focus:outline-none hover:bg-blue-500 rounded text-base mt-4 md:mt-0">
+        <Link
+          to={`/cart`}
+          className="text-white inline-flex items-center bg-blue-600 border-0 py-1 px-3 focus:outline-none hover:bg-blue-500 rounded text-base mt-4 md:mt-0"
+        >
           Go to Cart
           <svg
             fill="none"
@@ -58,7 +61,7 @@ const Navbar = () => {
           >
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
-        </button>
+        </Link>
       </div>
     </header>
   );

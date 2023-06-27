@@ -8,7 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Products from "./pages/Products";
 import CategoryProducts from "./pages/CategoryProducts";
-import Categories from "./pages/Categories";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Route exact path="/product/:id" element={<Product />} />
         <Route path="/products" element={<Products />} />
         <Route exact path="/category/:name" element={<CategoryProducts />} />
+        <Route exact path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
