@@ -6,6 +6,8 @@ const Product = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState(0);
 
   const [isPending, setIsPending] = useState(true);
   useEffect(() => {
@@ -14,6 +16,8 @@ const Product = () => {
         return res.json();
       })
       .then((data) => {
+        setRating(data.rating.rate);
+        setReview(data.rating.count);
         setIsPending(false);
         setProduct(data);
       });
@@ -79,7 +83,7 @@ const Product = () => {
                     >
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
-                    <svg
+                    {/* <svg
                       fill="currentColor"
                       stroke="currentColor"
                       stroke-linecap="round"
@@ -122,8 +126,13 @@ const Product = () => {
                       viewBox="0 0 24 24"
                     >
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <span class="text-gray-600 ml-3">4 Reviews</span>
+                    </svg> */}
+                    {rating && <span className="text-md ml-2">{rating}</span>}
+                    {review && (
+                      <span className="text-gray-600 ml-3">
+                        {review} Reviews
+                      </span>
+                    )}
                   </span>
                   <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
                     <a class="text-gray-500">
